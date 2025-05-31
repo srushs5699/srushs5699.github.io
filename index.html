@@ -208,7 +208,7 @@
         }
 
         /* Enhanced Hero Section */
-        .hero {
+        /* .hero {
             padding: 150px 0 100px;
             text-align: center;
             color: var(--white);
@@ -225,7 +225,46 @@
             bottom: 0;
             background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
             pointer-events: none;
-        }
+        }  */
+
+        .hero {
+    padding: 150px 0 100px;
+    text-align: left;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    /* Add background photo with blur */
+    background: linear-gradient(rgba(102, 126, 234, 0.6), rgba(241, 237, 245, 0.6)), 
+                url('Srushti_Grad4.jpg');
+    background-position: 10% center;  
+    background-size: 120% auto;
+    backdrop-filter: blur(5px);
+}
+
+/* Add this for extra blur effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('Srushti_Grad4.jpg') 70% center/cover no-repeat;
+    filter: blur(10px);
+    z-index: -2;
+}
+
+/* Keep the overlay for readability */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(230, 225, 235, 0.7));
+    z-index: -1;
+}
 
         .hero-content {
             position: relative;
@@ -253,13 +292,16 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            text-align: left;    /* Only paragraph left-aligned */
             max-width: 700px;
-            margin: 0 auto 3rem;
+            margin: 0 0 3rem 0; /* Keep centered container */
+            font-size: 1.3rem;
+            position: left;
             opacity: 0.85;
             animation: slideInFromRight 1s ease 0.6s both;
             line-height: 1.8;
             color: #6278cd; 
+            
         }
 
         .hero-buttons {
@@ -295,7 +337,7 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--white);
+            color: #667eea;
             border: 2px solid var(--white);
         }
 
@@ -330,13 +372,39 @@
             animation: fadeInUp 1s ease 1.2s both;
         }
 
-        .social-links a {
-            color: var(--white);
-            font-size: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+.social-links a {
+    color: white;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 15px;
+    padding: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+}
 
+/* LinkedIn Blue */
+.social-links a[href*="linkedin"] {
+    background: #0077b5;
+}
+
+/* GitHub Dark */
+.social-links a[href*="github"] {
+    background: #333;
+}
+
+/* Email Orange */
+.social-links a[href*="mailto"] {
+    background: #ea4335;
+}
+
+/* Phone Green */
+.social-links a[href*="tel"] {
+    background: #25d366;
+}
         .social-links a::after {
             content: '';
             position: absolute;
@@ -426,7 +494,7 @@
             position: relative;
             display: inline-block;
         }
-
+/* 
         .profile-placeholder {
             width: 300px;
             height: 300px;
@@ -442,7 +510,25 @@
             overflow: hidden;
             transition: all 0.3s ease;
             animation: float-profile 6s ease-in-out infinite;
-        }
+        } */
+
+        .profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    animation: float-profile 6s ease-in-out infinite;
+    border: 4px solid rgba(102, 126, 234, 0.2);
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 80px rgba(102, 126, 234, 0.6);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
 
         @keyframes float-profile {
             0%, 100% { transform: translateY(0); }
@@ -1319,12 +1405,10 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" data-scroll="home">Home</a></li>
                 <li><a href="#experience" data-scroll="experience">Experience</a></li>
-                <li><a href="#about" data-scroll="about">About</a></li>
-                
-                <li><a href="#skills" data-scroll="skills">Skills</a></li>
-                
                 <li><a href="#projects" data-scroll="projects">Projects</a></li>
                 <li><a href="#publications" data-scroll="publications">Publications</a></li>
+                <li><a href="#skills" data-scroll="skills">Skills</a></li>
+                <li><a href="#about" data-scroll="about">About</a></li>
                 <li><a href="#contact" data-scroll="contact">Contact</a></li> 
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1349,18 +1433,18 @@
                     </a>
                 </div>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/srushti-shinde" target="_blank" title="LinkedIn" class="social-link">
+                    <a href="https://www.linkedin.com/in/srushtisanjayshinde/" target="_blank" title="LinkedIn" class="social-link">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/srushtishinde" target="_blank" title="GitHub" class="social-link">
+                    <a href="https://github.com/srushs5699" target="_blank" title="GitHub" class="social-link">
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="mailto:srushtishinde12@gmail.com" title="Email" class="social-link">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="tel:+16082172116" title="Phone" class="social-link">
+                    <!-- <a href="tel:+16082172116" title="Phone" class="social-link">
                         <i class="fas fa-phone"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
@@ -1417,7 +1501,7 @@
                         <ul>
                             <li style="--i: 1">Performed Exploratory Data Analysis (EDA) on 50GB of robot operational data using Pandas, and Scikit-Learn to identify inefficiencies; optimized task scheduling and motion paths, boosting productivity by 10% and reducing downtime by 15%.</li>
                             <li style="--i: 2">Created real-time dashboards with Plotly, Seaborn and Power BI to monitor assembly line errors, identifying the Fitment area as the source of 25% of defects and enabling focused analysis of production inefficiencies.</li>
-                            <li style="--i: 3">Implemented One-Class SVM and DBSCAN anomaly detection algorithms to identify production outliers and deployed predictive models using Scikit-Learn to analyze defect patterns, reducing overall defects by 15% and decreasing the return rate of defective cars before test drives by 30%.</li>>
+                            <li style="--i: 3">Implemented One-Class SVM and DBSCAN anomaly detection algorithms to identify production outliers and deployed predictive models using Scikit-Learn to analyze defect patterns, reducing overall defects by 15% and decreasing the return rate of defective cars before test drives by 30%.</li>
                         </ul>
                     </div>
                 </div>
@@ -1445,7 +1529,7 @@
                         <span class="tech-tag">Grafana</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/srushtishinde/ml-operations" target="_blank" class="project-link">
+                        <a href="https://github.com/DeepakSingh260/Real-Time-News-Recommnedation-System" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
@@ -1463,7 +1547,7 @@
                         <span class="tech-tag">Matplotlib</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/srushtishinde/twitter-sentiment-2024" target="_blank" class="project-link">
+                        <a href="https://github.com/srushs5699/Twitter-Sentiment-Analysis-for-Presidential-Election-2024" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
@@ -1480,13 +1564,13 @@
                         <span class="tech-tag">Financial Analysis</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/srushtishinde/fomc-analysis" target="_blank" class="project-link">
+                        <a href="https://github.com/srushs5699/Evaluating-Hawkishness-and-Dovishness-of-FOMC-Meeting-Minutes" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <!-- <div class="project-card">
                     <h3>Blood Cell Analyzer WebApp</h3>
                     <p>Developed a full-stack medical imaging platform enabling doctors to analyze blood smear images with 93% accuracy using YOLOv5. Optimized inference to deliver results in under 2 seconds, reducing diagnostic lag by 30%.</p>
                     <div class="project-tech">
@@ -1502,7 +1586,7 @@
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="project-card">
                     <h3>Smart Home Energy Management System</h3>
@@ -1516,13 +1600,13 @@
                         <span class="tech-tag">HTML/CSS</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/srushtishinde/smart-home-energy" target="_blank" class="project-link">
+                        <a href="https://github.com/ss17454/EnergyConsumption" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <!-- <div class="project-card">
                     <h3>Image Captioning with Deep Learning</h3>
                     <p>Research project implementing an advanced image captioning model using Attention ResNet101 and LSTM. Achieved 20% improvement in caption accuracy over Inception V3 with RNNs and BLEU-4 score of 0.1866 on Flickr 8k dataset.</p>
                     <div class="project-tech">
@@ -1541,7 +1625,7 @@
                             <i class="fas fa-file-alt"></i> Paper
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -1561,6 +1645,13 @@
                         <span class="tech-tag">Deep Learning</span>
                         <span class="tech-tag">Research</span>
                     </div>
+
+                     <div class="project-links">
+                        <a href="https://ieeexplore.ieee.org/document/9824294" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Paper
+                        </a>
+
+                    </div>
                 </div>
 
                 <div class="project-card">
@@ -1573,6 +1664,13 @@
                         <span class="tech-tag">YOLOv5</span>
                         <span class="tech-tag">Healthcare</span>
                     </div>
+
+                    <div class="project-links">
+                        <a href="https://ieeexplore.ieee.org/document/9686524" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Paper
+                        </a>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -1580,13 +1678,7 @@
 
 
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Srushti Shinde. All rights reserved. Built with passion for technology and innovation.</p>
-            <p style="margin-top: 0.5rem; opacity: 0.8;">Machine Learning Engineer | Software Developer | NYU Graduate Student</p>
-        </div>
-    </footer>
+
 
     <script>
         // Loading Screen
@@ -2013,48 +2105,7 @@
 </body>
 </html>
 
-    <!-- About Section -->
-    <section id="about" class="fade-in-section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="profile-container">
-                        <div class="profile-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p>I'm a passionate Machine Learning Engineer and Software Developer currently pursuing my Master's in Computer Science at New York University. With a strong foundation in both ML/AI and full-stack development, I bridge the gap between cutting-edge research and practical implementation.</p>
-                    
-                    <p>My experience spans from building NLP pipelines with PyTorch and BERT to developing scalable backend systems with Java and Spring Boot. I've worked on everything from protein structure prediction using AlphaFold to real-time sentiment analysis of financial markets.</p>
-                    
-                    <p>I thrive on solving complex problems, whether it's optimizing neural networks for better accuracy or designing microservices that can handle millions of requests. My goal is to create technology that makes a meaningful impact on people's lives.</p>
-                    
-                    <div class="stats">
-                        <div class="stat-item" data-count="3.7">
-                            <span class="stat-number">3.7</span>
-                            <span>GPA at NYU</span>
-                        </div>
-                        <div class="stat-item" data-count="2">
-                            <span class="stat-number">2+</span>
-                            <span>Years Experience</span>
-                        </div>
-                        <div class="stat-item" data-count="15">
-                            <span class="stat-number">15+</span>
-                            <span>Projects Completed</span>
-                        </div>
-                        <div class="stat-item" data-count="2">
-                            <span class="stat-number">2</span>
-                            <span>Research Papers</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
 
 
     <!-- Skills Section -->
@@ -2144,6 +2195,47 @@
         </div>
     </section>
 
+     <!-- About Section -->
+    <section id="about" class="fade-in-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+<div class="about-image">
+    <div class="profile-container">
+        <img src="Srushti_Grad4.jpg" alt="Srushti Shinde" class="profile-image">
+    </div>
+</div>
+                <div class="about-text">
+                    <p>I'm a passionate Machine Learning Engineer and Software Developer currently pursuing my Master's in Computer Science at New York University. With a strong foundation in both ML/AI and full-stack development, I bridge the gap between cutting-edge research and practical implementation.</p>
+                    
+                    <p>My experience spans from building NLP pipelines with PyTorch and BERT to developing scalable backend systems with Java and Spring Boot. I've worked on everything from protein structure prediction using AlphaFold to real-time sentiment analysis of financial markets.</p>
+                    
+                    <p>I thrive on solving complex problems, whether it's optimizing neural networks for better accuracy or designing microservices that can handle millions of requests. My goal is to create technology that makes a meaningful impact on people's lives.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item" data-count="3.7">
+                            <span class="stat-number">3.7</span>
+                            <span>GPA at NYU</span>
+                        </div>
+                        <div class="stat-item" data-count="2">
+                            <span class="stat-number">2+</span>
+                            <span>Years Experience</span>
+                        </div>
+                        <div class="stat-item" data-count="15">
+                            <span class="stat-number">15+</span>
+                            <span>Projects Completed</span>
+                        </div>
+                        <div class="stat-item" data-count="2">
+                            <span class="stat-number">2</span>
+                            <span>Research Papers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
         <!-- Contact Section -->
     <section id="contact" class="fade-in-section">
         <div class="container">
@@ -2187,3 +2279,11 @@
             </div>
         </div>
     </section>
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Srushti Shinde. All rights reserved. Built with passion for technology and innovation.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.8;">Machine Learning Engineer | Software Developer | NYU Graduate Student</p>
+        </div>
+    </footer>
